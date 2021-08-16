@@ -7,19 +7,19 @@ import boto3
 import json
 import base64
 
-THEMES = {
-    'AST': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_AST.png'),
-    'FNC': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_FNC.png'),
-    'G2': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_G2.png'),
-    'LEC': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_LEC.png'),
-    'MAD': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_MAD.png'),
-    'MSF': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_MSF.png'),
-    'RGE': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_RGE.png'),
-    'S04': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_S04.png'),
-    'SK': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_SK.png'),
-    'VIT': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_VIT.png'),
-    'XL': Image.open('/app/Banners/LEC_Summer21_Twitter_FanBanner_XL.png'),
-}
+# THEMES = {
+#     'AST': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_AST.png'),
+#     'FNC': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_FNC.png'),
+#     'G2': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_G2.png'),
+#     'LEC': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_LEC.png'),
+#     'MAD': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_MAD.png'),
+#     'MSF': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_MSF.png'),
+#     'RGE': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_RGE.png'),
+#     'S04': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_S04.png'),
+#     'SK': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_SK.png'),
+#     'VIT': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_VIT.png'),
+#     'XL': Image.open('Banners/LEC_Summer21_Twitter_FanBanner_XL.png'),
+# }
 
 
 def handler(event, context):
@@ -32,7 +32,7 @@ def handler(event, context):
     print('new scenario:')
     print(scenario)
     name = scenario.pop('name')
-    fond = THEMES.get(scenario.pop('team'))
+    fond = Image.open('Banners/LEC_Summer21_Twitter_FanBanner_{}.png'.format(scenario.pop('team')))
     FOND_X = fond.size[0]
     FOND_Y = fond.size[1]
     FONT_SIZE = 100
@@ -72,3 +72,4 @@ def handler(event, context):
 # if __name__ == '__main__':
 #     for theme in THEMES.keys():
 #         handler({'name': 'YOURNAMEHERE', 'team': theme}, None)
+
