@@ -4,12 +4,9 @@ from PIL import ImageFont
 from PIL import ImageDraw
 import uuid
 import boto3
-import json
-import base64
 
 
 def handler(event, context):
-    # scenario = json.loads(base64.b64decode(event['body']).decode('utf-8'))
     scenario = event
 
     image_name = str(uuid.uuid4())
@@ -54,6 +51,8 @@ def handler(event, context):
     except Exception:
         print('just showing it')
         fond.show()
+    fond.close()
+    print('image closed')
 
 
 # if __name__ == '__main__':
