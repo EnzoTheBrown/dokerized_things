@@ -9,7 +9,7 @@ import base64
 
 
 def handler(event, context):
-    scenario = json.loads(base64.b64decode(event['body']).decode('utf-8'))
+    # scenario = json.loads(base64.b64decode(event['body']).decode('utf-8'))
     scenario = event
 
     image_name = str(uuid.uuid4())
